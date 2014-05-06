@@ -1,4 +1,4 @@
-# SoundCloud logo finder
+# SoundCloud Logo Finder
 
 Finds string of digits of π which match a reference image of the SoundCloud
 logo, as described in the [Berlin Buzzwords 2014 competition](https://developers.soundcloud.com/blog/buzzwords-contest).
