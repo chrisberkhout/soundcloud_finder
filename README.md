@@ -1,15 +1,15 @@
 # SoundCloud logo finder
 
-Finds string of digits of pi which match a reference image of the SoundCloud
-logo, from the [Berlin Buzzwords 2014 competition](https://developers.soundcloud.com/blog/buzzwords-contest).
+Finds string of digits of π which match a reference image of the SoundCloud
+logo, as described in the [Berlin Buzzwords 2014 competition](https://developers.soundcloud.com/blog/buzzwords-contest).
 
 ## Running it
 
-First download the pi dataset:
+First download the π dataset:
 
     wget http://stuff.mit.edu/afs/sipb/contrib/pi/pi-billion.txt
 
-Then run the script:
+Then run the script (and wait):
 
     time ./find.rb
 
@@ -19,9 +19,10 @@ To compare a given sequence against the reference image, I treat them as
 vectors, normalize them and take their dot product. Results closer to 1
 are an indicator of similarity.
 
-I compare the reference image with all 84 character sequences in the dataset.
+I compare the reference image with all 84 digit sequences in the dataset.
 
-Note that I use an offset, not a position number (in 3.14, the 4 has offset 1).
+Note that I use an offset, not a position number (in 3.14, the 4 has offset 1
+from the first position after the decimal point).
 
 ## Initial results
 
@@ -48,7 +49,7 @@ The first run took about 18 hours, and produced these results:
 
 The code is rough and could be refactored for readability.
 
-The results could be visualized by generating a HTML report.
+The results could be visualized by generating an HTML report.
 
 To improve performance without changing the general approach, the following
 steps could be taken:
@@ -57,14 +58,14 @@ steps could be taken:
   the previous sum adjusted to only subtract the outgoing digit's square and
   add the incoming digit's square before taking the square root.
 
-* Rather than resorting the list of top matches on each run, a minimum could
-  be tracked, so that worse results can be disregarded with a single
+* Rather than resorting the list of top matches on each run, a minimum score
+  could be tracked, so that worse results can be disregarded with a single
   comparison. Alternatively, a larger, unsorted list of matches could be
   maintained and only sorted and pruned occasionally.
 
 * Determine whether the dot product of the non-normalized vectors could provide
   a useful comparison score.
 
-To improve the accuracy of the matches and/or shorten the search time, other
+To improve the quality of the matches and/or shorten the search time, other
 image comparison methods could be implemented.
 
