@@ -63,6 +63,8 @@ steps could be taken:
   comparison. Alternatively, a larger, unsorted list of matches could be
   maintained and only sorted and pruned occasionally.
 
+* Make it run across multiple cores.
+
 * Determine whether the dot product of the non-normalized vectors could provide
   a useful comparison score.
 
